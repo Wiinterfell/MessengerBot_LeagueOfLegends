@@ -5,6 +5,11 @@ import json
 import requests
 from flask import Flask, request
 
+from OpenSSL import SSL
+context = SSL.Context(SSL.SSLv23_METHOD)
+context.use_privatekey_file(os.environ["SERVER_KEY"])
+context.use_certificate_file(os.environ["SERVER_CRT"])
+
 app = Flask(__name__)
 
 
@@ -83,4 +88,4 @@ def log(message):  # simple wrapper for logging to stdout on heroku
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=483)
+    app.run(debug=True, host='0.0.0.0', port=483, ssl_context=context)
