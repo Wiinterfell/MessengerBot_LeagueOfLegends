@@ -85,6 +85,6 @@ def log(message):  # simple wrapper for logging to stdout on heroku
     sys.stdout.flush()
 
 
-def run_app():
+if __name__ == '__main__':
     context = (os.environ["SERVER_CRT"], os.environ["SERVER_KEY"])
     app.run(debug=True, host='0.0.0.0', port=483, ssl_context=context)
