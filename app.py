@@ -6,7 +6,7 @@ import requests
 from flask import Flask, request
 
 from OpenSSL import SSL
-context = (os.environ["SERVER_KEY"], os.environ["SERVER_CRT"])
+context = (os.environ["SERVER_CRT"], os.environ["SERVER_KEY"])
 
 app = Flask(__name__)
 
