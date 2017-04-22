@@ -6,7 +6,7 @@ import requests
 from flask import Flask, request
 
 from OpenSSL import SSL
-context = (os.environ["SERVER_CRT"], os.environ["SERVER_KEY"])
+
 
 app = Flask(__name__)
 
@@ -85,5 +85,6 @@ def log(message):  # simple wrapper for logging to stdout on heroku
     sys.stdout.flush()
 
 
-if __name__ == '__main__':
+def run_app:
+    context = (os.environ["SERVER_CRT"], os.environ["SERVER_KEY"])
     app.run(debug=True, host='0.0.0.0', port=483, ssl_context=context)
